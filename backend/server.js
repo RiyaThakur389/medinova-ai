@@ -65,11 +65,13 @@ const connectDB = async () => {
 };
 
 // ─── Start Server ─────────────────────────────────────────────────────────────
+// ─── Start Server ─────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
 
 connectDB().then(() => {
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🚀 MediNova AI Server running on port ${PORT}`);
+    console.log(`📋 Environment: ${process.env.NODE_ENV || 'development'}`);
   });
 });
 
