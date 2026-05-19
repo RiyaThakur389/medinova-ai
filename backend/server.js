@@ -1,3 +1,6 @@
+console.log("=== SERVER STARTING ===");
+console.log("Node version:", process.version);
+console.log("MONGODB_URI exists:", !!process.env.MONGODB_URI);
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -54,15 +57,28 @@ app.get('/api/health', (req, res) => {
 app.use(errorHandler);
 
 // ─── Database Connection ──────────────────────────────────────────────────────
+// Sabse top pe
+console.log("=== SERVER STARTING ===");
+console.log("Node version:", process.version);
+
+// ... imports etc ...
+
+// Database Connection section (yeh replace karo)
 const connectDB = async () => {
+  console.log("🔍 Connecting to MongoDB...");
+  console.log("MONGODB_URI exists:", !!process.env.MONGODB_URI);
+  
   try {
     const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/medinova_ai');
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`❌ MongoDB Error: ${error.message}`);
+    console.error("Full error:", error);
     process.exit(1);
   }
 };
+
+// ... rest of the code ...
 
 // ─── Start Server ─────────────────────────────────────────────────────────────
 // ─── Start Server ─────────────────────────────────────────────────────────────
