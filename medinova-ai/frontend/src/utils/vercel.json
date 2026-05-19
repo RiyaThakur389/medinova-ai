@@ -1,0 +1,10 @@
+{
+  "env": {
+    "VITE_API_URL": "https://medinova-ai-zh6h.onrender.com/api"
+  },
+  "build": {
+    "env": {
+      "VITE_API_URL": "https://medinova-ai-zh6h.onrender.com/api"
+    }
+  }
+}
